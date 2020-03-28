@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="checkbox" id="che">
+    <div id="divs">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+    </div>
+    <input type="button" id="hh">
+    <script>
+        //获取元素
+        var che = document.querySelector('#che');
+        var divs = document.getElementById('divs').getElementsByTagName('input');
+        var hh = document.getElementById('hh');
+        // console.log(divs);
+        // 注册事件
+        che.onclick = function () {
+            // this.checkbox;
+            for (var i = 0; i < divs.length; i++) {
+                divs[i].checked = this.checked;
+            }
+        }
+        for (var o = 0; o < divs.length; o++) {
+            divs[o].onclick = function () {
+                var flag = true;
+                for (var i = 0; i < divs.length; i++) {
+                    if (!divs[i].checked) {
+                        flag = false;
+                        break;
+                    }
+                }
+                che.checked = flag;
+            }
+        }
+        // hh.onclick = function () {
+        //     var s = true;
+        //     for (var i = 0; i < divs.lenght; i++) {
+        //         console.log(divs[i].checked);
+        //         // if (!divs[i].checked) {
+        //         //     console.log(1);
+        //         // }
+        //     }
+
+        // }
+    </script>
+</body>
+
+</html>
